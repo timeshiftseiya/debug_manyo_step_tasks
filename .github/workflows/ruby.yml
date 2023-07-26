@@ -128,6 +128,7 @@ jobs:
         run: |
           bundle exec rspec spec/system/step5_spec.rb
         continue-on-error: true
+      - uses: actions/checkout@v3
       - uses: JasonEtco/create-an-issue@v2
         if: contains(github.ref, 'step1') || contains(github.ref, 'step2') || contains(github.ref, 'step3') || contains(github.ref, 'step4') || contains(github.ref, 'step5')
         env:
