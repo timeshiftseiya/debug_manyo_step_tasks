@@ -17,9 +17,6 @@ jobs:
         ports:
           - 5432:5432
         options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
-    permissions:
-      pull-requests: write
-      contents: write
     steps:
       - uses: actions/checkout@v3
       - name: Create Issue Action
@@ -27,6 +24,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN }}
         with:
-          github_token: ${{ github.token }}
           update_existing: true
           search_existing: all
+          title: "Test"
