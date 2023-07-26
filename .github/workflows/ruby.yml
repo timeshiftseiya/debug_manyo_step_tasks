@@ -137,7 +137,7 @@ jobs:
       - name: Create Error File on Branch Name
         if: "!contains(github.ref, 'step1') && !contains(github.ref, 'step2') && !contains(github.ref, 'step3') && !contains(github.ref, 'step4') && !contains(github.ref, 'step5')"
         run: |
-          echo -e  "---\ntitle: dpro\n---" > .github/branch_error_template.md
+          echo -e  "---\ntitle: dpro\nbody: body\n---" > .github/branch_error_template.md
       - uses: JasonEtco/create-an-issue@v2
         if: "!contains(github.ref, 'step1') && !contains(github.ref, 'step2') && !contains(github.ref, 'step3') && !contains(github.ref, 'step4') && !contains(github.ref, 'step5')"
         env:
@@ -147,7 +147,7 @@ jobs:
       - name: Create Error File on Non-branch Name
         if: failure()
         run: |
-          echo -e "---\ntitle: dpro\n---" > .github/execution_error_template.md
+          echo -e "---\ntitle: dpro\nbody: body\n---" > .github/execution_error_template.md
       - uses: JasonEtco/create-an-issue@v2
         if: failure()
         env:
